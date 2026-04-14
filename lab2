@@ -1,0 +1,28 @@
+#lang racket
+;1.
+(define (gen-list start end)
+  (cond
+    [(> start end) '()]
+    [else (cons start (gen-list (+ start 1) end))]))
+;2.
+(define (sum L)
+  (cond
+    [(null? L) 0]
+    [else (+ (car L) (sum (cdr L)))]))
+;3.
+(define (retrieve-first-n n L)
+  (cond
+    [(> n (length L)) L]
+    [(<= n 0) '()]
+    [else (cons (car L) (retrieve-first-n (- n 1) (cdr L)))]))
+;4.
+(define (pair-sum? L n)
+  (cond
+    [(< (length L) 2) #f]
+    [(= (+ (car L) (car (cdr L))) n) #t]
+    [else (pair-sum? (cdr L) n)]))
+;4.
+(define (mystery-tail L [acc '()])
+  (cond
+      [(null? L) acc]
+      [else (mystery-tail (cdr L) (append (list (car L)) acc))]))rig
