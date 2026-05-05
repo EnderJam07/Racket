@@ -29,4 +29,4 @@
     [(null? S1) acc]
     [(null? S2) acc]
     [(member? (car S1) S2) (intersect (cdr S1) S2 (append acc (list (car S1))))]
-    [else (intersect (cdr S1) S2)]))
+    [else (intersect (cdr S1) S2) acc]))
