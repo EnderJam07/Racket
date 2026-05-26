@@ -47,8 +47,4 @@
     [(and (null? L) (equal? full original-full)) full]
     [(null? L) (Transitive-Closure full full full)]
     [else
-     (Transitive-Closure
-      (cdr L)
-      (remove-duplicates
-       (append full (build-new-pairs (caar L) (find-connections (cadar L) full))))
-      original-full)]))
+     (Transitive-Closure (cdr L) (remove-duplicates (append full (build-new-pairs (caar L) (find-connections (cadar L) full)))) original-full)]))
