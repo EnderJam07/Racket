@@ -5,11 +5,6 @@
     [(null? L) #f]
     [(equal? (first L) x) #t]
     [else (member? x (cdr L))]))
-(define (check-pairs x yz L)
-  (cond
-    [(null? yz) #t]
-    [(member? (list x (cadr (car yz))) L) (check-pairs x (cdr yz) L)]
-    [else #f]))
 (define (find-connections x L)
   (cond
     [(null? L) '()]
